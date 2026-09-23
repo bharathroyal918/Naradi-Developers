@@ -25,8 +25,16 @@ export default function FloatingControls() {
 
   useEffect(() => {
     if (isAuthPage) return;
+    let ticking = false;
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 400);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const shouldShow = window.scrollY > 400;
+          setShowBackToTop((prev) => (prev !== shouldShow ? shouldShow : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
 
@@ -38,7 +46,7 @@ export default function FloatingControls() {
     }
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isAuthPage]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -99,7 +107,7 @@ export default function FloatingControls() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               onClick={scrollToTop}
-              className="w-10 h-10 rounded-full bg-gray-900/80 backdrop-blur-md text-white flex items-center justify-center shadow-md hover:bg-emerald-900 transition-colors"
+              className="w-10 h-10 rounded-full bg-gray-950 text-white flex items-center justify-center shadow-xl hover:bg-emerald-900 transition-colors transform-gpu"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />
@@ -192,7 +200,7 @@ export default function FloatingControls() {
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-5 left-5 right-5 sm:left-6 sm:right-auto sm:max-w-md bg-gray-950/95 text-white backdrop-blur-xl rounded-3xl p-5 shadow-2xl border border-gray-800 z-50 flex flex-col gap-3.5"
+            className="fixed bottom-5 left-5 right-5 sm:left-6 sm:right-auto sm:max-w-md bg-gray-950 text-white rounded-3xl p-5 shadow-2xl border border-gray-800 z-50 flex flex-col gap-3.5"
           >
             <div className="flex items-start justify-between gap-3">
               <p className="text-xs text-gray-300 leading-relaxed">

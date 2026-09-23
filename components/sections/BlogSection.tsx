@@ -105,7 +105,7 @@ export default function BlogSection() {
                   alt={featuredPost.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-900/90 text-amber-300 text-xs font-bold uppercase tracking-wider backdrop-blur-md">
+                <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-emerald-950 text-amber-300 text-xs font-bold uppercase tracking-wider shadow-md">
                   {featuredPost.category}
                 </div>
               </div>

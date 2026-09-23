@@ -97,10 +97,10 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  text-rendering: optimizeSpeed;
+  scroll-behavior: auto;
 }
 
 body {
@@ -110,6 +110,15 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
 }
+
+/* Hardware layer promotion for fixed elements to eliminate scroll repainting */
+header, [role="banner"], .fixed {
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 
 /* ===== TYPOGRAPHY ===== */
 .font-display {
@@ -548,9 +557,8 @@ hr.divider {
   border-radius: 9999px;
   font-size: 0.7rem;
   font-weight: 700;
-  background: linear-gradient(135deg, rgba(15, 81, 50, 0.85), rgba(22, 163, 74, 0.85));
+  background: linear-gradient(135deg, #0F5132, #16a34a);
   color: white;
-  backdrop-filter: blur(4px);
   white-space: nowrap;
 }
 

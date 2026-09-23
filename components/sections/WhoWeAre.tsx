@@ -62,7 +62,7 @@ export default function WhoWeAre() {
               </div>
 
               {/* Founder Tag Pill */}
-              <div className="absolute top-6 left-6 px-4 py-2.5 rounded-2xl bg-emerald-950/90 backdrop-blur-md text-white text-xs font-semibold border border-emerald-800 shadow-lg">
+              <div className="absolute top-6 left-6 px-4 py-2.5 rounded-2xl bg-emerald-950 text-white text-xs font-semibold border border-emerald-800 shadow-lg">
                 <p className="text-[10px] text-amber-300 font-bold uppercase tracking-wider">Leadership</p>
                 <p className="font-display font-bold text-sm">G.R Narendra Reddy</p>
                 <p className="text-[10px] text-gray-300">Founder &amp; CEO</p>

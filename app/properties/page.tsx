@@ -301,7 +301,7 @@ export default function PropertiesPage() {
             <div className="flex items-center gap-3">
               <Link
                 href="/buyer/wishlist"
-                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white text-xs font-semibold hover:bg-white/20 transition-all"
+                className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-800/80 border border-white/20 text-white text-xs font-semibold hover:bg-emerald-700/80 transition-all"
               >
                 <Heart className={`w-3.5 h-3.5 ${wishlist.length > 0 ? 'fill-red-400 text-red-400' : ''}`} />
                 Saved ({wishlist.length})
@@ -602,19 +602,19 @@ export default function PropertiesPage() {
 
                   {/* Compass & Controls Floating Overlay */}
                   <div className="absolute top-4 right-4 z-20 flex flex-col gap-2">
-                    <button className="w-9 h-9 rounded-xl bg-white/90 backdrop-blur-md shadow-lg flex items-center justify-center text-gray-700 hover:text-emerald-700">
+                    <button className="w-9 h-9 rounded-xl bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-emerald-700">
                       <Compass className="w-4 h-4" />
                     </button>
-                    <button className="w-9 h-9 rounded-xl bg-white/90 backdrop-blur-md shadow-lg flex items-center justify-center text-gray-700 hover:text-emerald-700 font-bold text-sm">
+                    <button className="w-9 h-9 rounded-xl bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-emerald-700 font-bold text-sm">
                       +
                     </button>
-                    <button className="w-9 h-9 rounded-xl bg-white/90 backdrop-blur-md shadow-lg flex items-center justify-center text-gray-700 hover:text-emerald-700 font-bold text-sm">
+                    <button className="w-9 h-9 rounded-xl bg-white shadow-lg flex items-center justify-center text-gray-700 hover:text-emerald-700 font-bold text-sm">
                       −
                     </button>
                   </div>
 
                   {/* Satellite / Terrain Selector Badge */}
-                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md border border-gray-200 text-xs font-bold text-gray-800 shadow-md">
+                  <div className="absolute top-4 left-4 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white border border-gray-200 text-xs font-bold text-gray-800 shadow-md">
                     <Navigation className="w-3.5 h-3.5 text-emerald-700" />
                     South India High-Precision GIS Overlay
                   </div>
@@ -753,10 +753,10 @@ export default function PropertiesPage() {
                         <div className="absolute top-3 right-3 flex items-center gap-1.5">
                           <button
                             onClick={() => toggleCompare(property.id)}
-                            className={`w-8 h-8 rounded-full backdrop-blur-md flex items-center justify-center transition-all ${
+                            className={`w-8 h-8 rounded-full shadow flex items-center justify-center transition-all ${
                               compareList.includes(property.id)
                                 ? 'bg-amber-400 text-emerald-950 font-bold'
-                                : 'bg-white/80 text-gray-700 hover:bg-white'
+                                : 'bg-white text-gray-700 hover:bg-gray-100'
                             }`}
                             title="Compare property"
                             aria-label="Compare property"
@@ -765,14 +765,14 @@ export default function PropertiesPage() {
                           </button>
                           <button
                             onClick={() => toggleWishlist(property.id)}
-                            className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center hover:bg-white transition-all"
+                            className="w-8 h-8 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 transition-all"
                             aria-label="Wishlist"
                           >
                             <Heart className={`w-3.5 h-3.5 ${wishlist.includes(property.id) ? 'fill-red-500 text-red-500' : 'text-gray-700'}`} />
                           </button>
                           <button
                             onClick={() => setShareModalProp(property)}
-                            className="w-8 h-8 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center hover:bg-white transition-all text-gray-700"
+                            className="w-8 h-8 rounded-full bg-white shadow flex items-center justify-center hover:bg-gray-100 transition-all text-gray-700"
                             aria-label="Share property"
                           >
                             <Share2 className="w-3.5 h-3.5" />
@@ -781,7 +781,7 @@ export default function PropertiesPage() {
 
                         {/* Bottom Tag */}
                         <div className="absolute bottom-3 left-3">
-                          <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold text-white shadow backdrop-blur-md" style={{ background: property.listingType === 'sale' ? 'rgba(15,81,50,0.85)' : 'rgba(201,162,39,0.9)' }}>
+                          <span className="px-2.5 py-1 rounded-lg text-[10px] font-bold text-white shadow-sm" style={{ background: property.listingType === 'sale' ? '#0f5132' : '#c9a227' }}>
                             {property.listingType === 'lease' ? 'For Lease' : 'For Sale'}
                           </span>
                         </div>
@@ -974,7 +974,7 @@ export default function PropertiesPage() {
       {/* Mobile Filter Drawer */}
       {isSidebarOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-xs" onClick={() => setIsSidebarOpen(false)} />
+          <div className="absolute inset-0 bg-black/60" onClick={() => setIsSidebarOpen(false)} />
           <motion.div
             initial={{ x: '-100%' }}
             animate={{ x: 0 }}

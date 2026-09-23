@@ -128,14 +128,14 @@ function PropertyDetail({ property }: { property: Property }) {
             <>
               <button
                 onClick={() => setActiveImg((p) => (p - 1 + property.images.length) % property.images.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/75 transition-all shadow-xl backdrop-blur-xs"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all shadow-xl"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-6 h-6" />
               </button>
               <button
                 onClick={() => setActiveImg((p) => (p + 1) % property.images.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/50 text-white flex items-center justify-center hover:bg-black/75 transition-all shadow-xl backdrop-blur-xs"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-black/85 transition-all shadow-xl"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -147,7 +147,7 @@ function PropertyDetail({ property }: { property: Property }) {
           <div className="absolute bottom-5 left-6 flex flex-wrap gap-2.5 z-10">
             <button
               onClick={() => setVirtualTourActive(true)}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/20 backdrop-blur-md text-white text-xs font-bold border border-white/30 hover:bg-white/30 transition-all shadow-lg"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-black/70 text-white text-xs font-bold border border-white/30 hover:bg-black/85 transition-all shadow-lg"
             >
               <Compass className="w-3.5 h-3.5 text-amber-300" />
               Interactive 360° Tour
@@ -165,7 +165,7 @@ function PropertyDetail({ property }: { property: Property }) {
           <div className="absolute top-5 left-6 right-6 flex items-center justify-between z-10">
             <Link
               href="/properties"
-              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-black/40 backdrop-blur-md text-white/90 text-xs font-semibold hover:text-white hover:bg-black/60 transition-all border border-white/10"
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-black/70 text-white/90 text-xs font-semibold hover:text-white hover:bg-black/90 transition-all border border-white/10"
             >
               <ArrowLeft className="w-4 h-4" /> Back to Listings
             </Link>
@@ -173,15 +173,15 @@ function PropertyDetail({ property }: { property: Property }) {
             <div className="flex items-center gap-2">
               <Link
                 href={`/properties/compare?ids=${property.id}`}
-                className="w-9 h-9 rounded-xl bg-black/40 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/60 transition-all border border-white/10"
+                className="w-9 h-9 rounded-xl bg-black/70 text-white flex items-center justify-center hover:bg-black/90 transition-all border border-white/10"
                 title="Compare this property"
               >
                 <Scale className="w-4 h-4" />
               </Link>
               <button
                 onClick={() => setIsWishlisted(!isWishlisted)}
-                className={`w-9 h-9 rounded-xl backdrop-blur-md flex items-center justify-center transition-all border border-white/10 ${
-                  isWishlisted ? 'bg-red-500 text-white' : 'bg-black/40 text-white hover:bg-black/60'
+                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all border border-white/10 ${
+                  isWishlisted ? 'bg-red-500 text-white' : 'bg-black/70 text-white hover:bg-black/90'
                 }`}
                 aria-label="Wishlist"
               >
@@ -189,7 +189,7 @@ function PropertyDetail({ property }: { property: Property }) {
               </button>
               <button
                 onClick={() => setIsShareOpen(true)}
-                className="w-9 h-9 rounded-xl bg-black/40 backdrop-blur-md text-white flex items-center justify-center hover:bg-black/60 transition-all border border-white/10"
+                className="w-9 h-9 rounded-xl bg-black/70 text-white flex items-center justify-center hover:bg-black/90 transition-all border border-white/10"
                 aria-label="Share property"
               >
                 <Share2 className="w-4 h-4" />
@@ -786,7 +786,7 @@ function PropertyDetail({ property }: { property: Property }) {
       </div>
 
       {/* Mobile Sticky Bar */}
-      <div className="fixed bottom-16 left-0 right-0 lg:hidden z-30 bg-white/95 backdrop-blur-md border-t border-gray-200 p-3 shadow-2xl">
+      <div className="fixed bottom-16 left-0 right-0 lg:hidden z-30 bg-white border-t border-gray-200 p-3 shadow-2xl">
         <div className="flex gap-2 max-w-lg mx-auto">
           <button
             onClick={() => setIsEnquiryOpen(true)}

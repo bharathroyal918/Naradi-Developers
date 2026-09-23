@@ -72,7 +72,7 @@ export default function WhyInvest() {
               </div>
 
               {/* Floating Overlay Badge (Bottom Left) */}
-              <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-white/95 backdrop-blur-md shadow-xl border border-gray-100">
+              <div className="absolute bottom-6 left-6 right-6 p-5 rounded-2xl bg-white shadow-xl border border-gray-100">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 rounded-xl bg-emerald-800 text-white flex items-center justify-center flex-shrink-0">
                     <ShieldCheck className="w-6 h-6 text-amber-300" />

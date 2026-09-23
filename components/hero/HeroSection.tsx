@@ -101,7 +101,6 @@ export default function HeroSection() {
         {/* Luxury Emerald & Charcoal Vignette Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/95 via-emerald-950/85 to-gray-950/90" />
         <div className="absolute inset-0 bg-gradient-to-t from-emerald-950 via-transparent to-black/50" />
-        <div className="absolute inset-0 backdrop-blur-[1px]" />
       </div>
 
       {/* Hero Content */}
@@ -113,7 +112,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5 }}
           className="mb-5"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-900/60 backdrop-blur-md border border-emerald-400/30 text-emerald-200 text-xs font-semibold uppercase tracking-wider shadow-lg">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950/90 border border-emerald-400/30 text-emerald-200 text-xs font-semibold uppercase tracking-wider shadow-lg">
             <Shield className="w-3.5 h-3.5 text-amber-400" />
             <span>Verified Land Marketplace</span>
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
@@ -167,18 +166,18 @@ export default function HeroSection() {
           {/* Secondary (Outline) */}
           <Link
             href="/seller-portal"
-            className="px-6 py-3.5 rounded-2xl text-sm font-semibold text-white border border-white/30 hover:bg-white/10 hover:border-white/60 active:scale-95 transition-all backdrop-blur-md"
+            className="px-6 py-3.5 rounded-2xl text-sm font-semibold text-white border border-white/30 hover:bg-white/10 hover:border-white/60 active:scale-95 transition-all bg-black/20"
           >
             List Your Property (Free)
           </Link>
         </motion.div>
 
-        {/* Floating Glass Search Card */}
+        {/* Floating Search Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="w-full max-w-4xl bg-white/95 backdrop-blur-xl rounded-3xl p-5 sm:p-6 shadow-2xl border border-white/40 text-left mb-8"
+          className="w-full max-w-4xl bg-white rounded-3xl p-5 sm:p-6 shadow-2xl border border-gray-100 text-left mb-8 transform-gpu"
         >
           {/* Quick Filters */}
           <div className="flex flex-wrap items-center gap-2 pb-4 mb-4 border-b border-gray-100">
@@ -312,7 +311,7 @@ export default function HeroSection() {
           {trustChips.map((chip) => (
             <div
               key={chip.label}
-              className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/30 backdrop-blur-md border border-white/15 text-xs text-gray-200"
+              className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-white/15 text-xs text-gray-200"
             >
               <chip.icon className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
               <span>{chip.label}</span>

@@ -49,7 +49,7 @@ function PropertyCard({ property, index }: { property: typeof mockProperties[0];
                   e.preventDefault();
                   setImgIndex((p) => (p - 1 + property.images.length) % property.images.length);
                 }}
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70 backdrop-blur-sm z-10"
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/85 z-10"
                 aria-label="Previous image"
               >
                 <ChevronLeft className="w-4 h-4" />
@@ -59,7 +59,7 @@ function PropertyCard({ property, index }: { property: typeof mockProperties[0];
                   e.preventDefault();
                   setImgIndex((p) => (p + 1) % property.images.length);
                 }}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/40 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70 backdrop-blur-sm z-10"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/85 z-10"
                 aria-label="Next image"
               >
                 <ChevronRight className="w-4 h-4" />
@@ -86,17 +86,17 @@ function PropertyCard({ property, index }: { property: typeof mockProperties[0];
           {/* Top Left Badges: Verified, DTCP, RERA */}
           <div className="absolute top-3 left-3 flex flex-wrap gap-1.5 z-10">
             {property.isVerified && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-800/90 text-white backdrop-blur-md shadow-sm">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-900 text-white shadow-sm">
                 <Shield className="w-3 h-3 text-amber-300" /> 100% Verified
               </span>
             )}
             {property.isDTCP && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-700/85 text-white backdrop-blur-md">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-blue-800 text-white shadow-sm">
                 DTCP / BDA
               </span>
             )}
             {property.isRERA && (
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-700/85 text-white backdrop-blur-md">
+              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold bg-purple-800 text-white shadow-sm">
                 RERA
               </span>
             )}
@@ -107,21 +107,21 @@ function PropertyCard({ property, index }: { property: typeof mockProperties[0];
             <span
               className="inline-block px-2.5 py-1 rounded-full text-[10px] font-bold text-white shadow-sm"
               style={{
-                background: property.listingType === 'sale' ? 'rgba(15,81,50,0.92)' : 'rgba(201,162,39,0.92)',
+                background: property.listingType === 'sale' ? '#0f5132' : '#c9a227',
               }}
             >
               {property.listingType === 'lease' ? 'For Lease' : 'For Sale'}
             </span>
           </div>
 
-          {/* Bottom Floating Glass Action Icons: Save & Share */}
+          {/* Bottom Floating Action Icons: Save & Share */}
           <div className="absolute bottom-3 right-3 flex gap-2 z-10">
             <button
               onClick={(e) => {
                 e.preventDefault();
                 setIsWishlisted(!isWishlisted);
               }}
-              className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-transform"
+              className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-transform"
               aria-label={isWishlisted ? 'Remove from wishlist' : 'Save property'}
               title={isWishlisted ? 'Saved' : 'Save property'}
             >
@@ -129,7 +129,7 @@ function PropertyCard({ property, index }: { property: typeof mockProperties[0];
             </button>
             <button
               onClick={handleShare}
-              className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-md flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-transform"
+              className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-transform"
               aria-label="Share property link"
               title={copied ? 'Link Copied!' : 'Share property'}
             >
@@ -241,6 +241,7 @@ export default function FeaturedProperties() {
 
   return (
     <section
+      ref={ref}
       id="featured-properties"
       aria-label="Featured luxury land and properties"
       className="py-20 lg:py-28 bg-[#fafaf9]"

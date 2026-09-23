@@ -104,7 +104,7 @@ export default function WishlistPage() {
                     />
                     <div className="absolute top-3 left-3 flex items-center gap-1.5">
                       {prop.isVerified && (
-                        <span className="px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-emerald-900/90 backdrop-blur-md text-emerald-300 flex items-center gap-1">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-emerald-950 text-emerald-300 flex items-center gap-1 shadow-sm">
                           <Shield className="w-3 h-3 text-amber-400" />
                           Verified
                         </span>
@@ -115,7 +115,7 @@ export default function WishlistPage() {
                       <button
                         type="button"
                         onClick={() => setSelectedForShare(prop)}
-                        className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white hover:bg-black/70 flex items-center justify-center transition-colors"
+                        className="w-8 h-8 rounded-full bg-black/70 text-white hover:bg-black/90 flex items-center justify-center transition-colors shadow-sm"
                         aria-label="Share property"
                       >
                         <Share2 className="w-3.5 h-3.5" />
@@ -123,7 +123,7 @@ export default function WishlistPage() {
                       <button
                         type="button"
                         onClick={() => handleRemove(prop.id)}
-                        className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-rose-400 hover:bg-rose-600 hover:text-white flex items-center justify-center transition-colors"
+                        className="w-8 h-8 rounded-full bg-black/70 text-rose-400 hover:bg-rose-600 hover:text-white flex items-center justify-center transition-colors shadow-sm"
                         title="Remove from wishlist"
                       >
                         <Trash2 className="w-3.5 h-3.5" />

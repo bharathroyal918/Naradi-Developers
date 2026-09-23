@@ -56,6 +56,7 @@ export default function NRIServices() {
 
   return (
     <section
+      ref={ref}
       id="nri-services"
       aria-label="NRI real estate investment services"
       className="py-20 lg:py-28 bg-gradient-to-br from-emerald-950 via-emerald-900 to-gray-950 text-white relative overflow-hidden"
@@ -93,7 +94,7 @@ export default function NRIServices() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: idx * 0.14 }}
-              className="bg-white/10 backdrop-blur-md rounded-3xl p-7 border border-white/15 hover:border-amber-400/50 hover:bg-white/15 transition-all duration-300 flex flex-col justify-between group shadow-xl"
+              className="bg-emerald-900/60 rounded-3xl p-7 border border-white/15 hover:border-amber-400/50 hover:bg-emerald-900/80 transition-all duration-300 flex flex-col justify-between group shadow-xl"
             >
               <div>
                 {/* Top Image & Badge */}
@@ -104,7 +105,7 @@ export default function NRIServices() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-[10px] font-bold text-amber-300 uppercase tracking-wider">
+                  <div className="absolute top-3 left-3 px-3 py-1 rounded-full bg-black/80 border border-white/20 text-[10px] font-bold text-amber-300 uppercase tracking-wider">
                     {card.tag}
                   </div>
                   <div className="absolute bottom-3 left-3 w-10 h-10 rounded-xl bg-emerald-800/90 flex items-center justify-center text-white">
@@ -147,7 +148,7 @@ export default function NRIServices() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="rounded-3xl p-6 sm:p-10 bg-gradient-to-r from-amber-500/20 via-emerald-800/40 to-amber-500/20 border border-amber-400/30 backdrop-blur-xl flex flex-col md:flex-row items-center justify-between gap-6"
+          className="rounded-3xl p-6 sm:p-10 bg-gradient-to-r from-emerald-900 via-emerald-800 to-emerald-900 border border-amber-400/30 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="flex items-center gap-4 text-center md:text-left">
             <div className="w-14 h-14 rounded-2xl bg-amber-400 text-emerald-950 flex items-center justify-center flex-shrink-0 shadow-lg">

@@ -283,13 +283,13 @@ export function CategoryMarketplaceView({
                     />
                     <div className="absolute top-3 left-3 flex items-center gap-1.5">
                       {prop.isVerified && (
-                        <span className="px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-emerald-900/90 backdrop-blur-md text-emerald-300 flex items-center gap-1">
+                        <span className="px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-emerald-950 text-emerald-300 flex items-center gap-1 shadow-sm">
                           <Shield className="w-3 h-3 text-amber-400" />
                           Verified
                         </span>
                       )}
                       {prop.isDTCP && (
-                        <span className="px-2 py-1 rounded-md text-[10px] font-bold bg-black/60 backdrop-blur-md text-white">
+                        <span className="px-2 py-1 rounded-md text-[10px] font-bold bg-black/75 text-white shadow-sm">
                           DTCP / BDA
                         </span>
                       )}
@@ -299,7 +299,7 @@ export function CategoryMarketplaceView({
                       <button
                         type="button"
                         onClick={() => setSelectedPropertyForShare(prop)}
-                        className="w-8 h-8 rounded-full bg-black/50 backdrop-blur-md text-white hover:bg-black/70 flex items-center justify-center transition-colors"
+                        className="w-8 h-8 rounded-full bg-black/60 text-white hover:bg-black/80 flex items-center justify-center transition-colors shadow-sm"
                         aria-label="Share property"
                       >
                         <Share2 className="w-3.5 h-3.5" />
@@ -310,7 +310,7 @@ export function CategoryMarketplaceView({
                       <span className="font-display font-black text-xl text-white">
                         {formatPrice(prop.pricing.totalPrice)}
                       </span>
-                      <span className="text-xs font-semibold bg-black/50 backdrop-blur-md px-2 py-0.5 rounded">
+                      <span className="text-xs font-semibold bg-black/70 px-2 py-0.5 rounded">
                         {formatArea(prop.pricing.totalArea, prop.pricing.areaUnit)}
                       </span>
                     </div>
@@ -384,7 +384,7 @@ export function CategoryMarketplaceView({
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {prop.isVerified && (
-                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-emerald-900/90 backdrop-blur-md text-emerald-300 flex items-center gap-1">
+                    <span className="absolute top-3 left-3 px-2.5 py-1 rounded-md text-[10px] font-black uppercase tracking-wider bg-emerald-950 text-emerald-300 flex items-center gap-1 shadow-sm">
                       <Shield className="w-3 h-3 text-amber-400" /> Verified
                     </span>
                   )}

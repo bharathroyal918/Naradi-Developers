@@ -70,6 +70,7 @@ export default function TopCategories() {
 
   return (
     <section
+      ref={ref}
       id="featured-categories"
       aria-label="Featured land categories"
       className="py-20 lg:py-28 bg-white"
@@ -136,7 +137,7 @@ export default function TopCategories() {
 
                   {/* Top Badge (Listing Count) */}
                   <div className="absolute top-4 left-4 z-10">
-                    <span className="px-3 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/20 text-xs font-semibold text-white">
+                    <span className="px-3 py-1 rounded-full bg-black/75 border border-white/20 text-xs font-semibold text-white">
                       {cat.count}
                     </span>
                   </div>

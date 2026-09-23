@@ -14,7 +14,7 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   'indian-rupee': IndianRupee,
 };
 
-function AnimatedCounter({ target, suffix, prefix = '', duration = 2000 }: {
+function AnimatedCounter({ target, suffix, prefix = '', duration = 1800 }: {
   target: number;
   suffix: string;
   prefix?: string;
@@ -26,18 +26,26 @@ function AnimatedCounter({ target, suffix, prefix = '', duration = 2000 }: {
 
   useEffect(() => {
     if (!isInView) return;
-    let start = 0;
-    const step = target / (duration / 16);
-    const timer = setInterval(() => {
-      start += step;
-      if (start >= target) {
-        setCount(target);
-        clearInterval(timer);
+    let startTime: number | null = null;
+    let rafId: number;
+
+    const animate = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      // Smooth cubic ease out
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
+
+      if (progress < 1) {
+        rafId = requestAnimationFrame(animate);
       } else {
-        setCount(Math.floor(start));
+        setCount(target);
       }
-    }, 16);
-    return () => clearInterval(timer);
+    };
+
+    rafId = requestAnimationFrame(animate);
+    return () => cancelAnimationFrame(rafId);
   }, [isInView, target, duration]);
 
   return (

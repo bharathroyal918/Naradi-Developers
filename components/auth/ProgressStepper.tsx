@@ -28,11 +28,11 @@ export function ProgressStepper({
       {/* Step Numbers & Connector Line */}
       <div className="relative flex items-center justify-between">
         {/* Connector Line Background */}
-        <div className="absolute top-1/2 -translate-y-1/2 left-4 right-4 h-0.5 bg-gray-200 dark:bg-gray-800 -z-0" />
+        <div className={`absolute top-1/2 -translate-y-1/2 left-4 right-4 h-0.5 ${isDark ? 'bg-gray-800' : 'bg-gray-200'} -z-0`} />
 
         {/* Active Line Fill */}
         <div
-          className="absolute top-1/2 -translate-y-1/2 left-4 h-0.5 bg-emerald-700 dark:bg-amber-400 transition-all duration-500 -z-0"
+          className={`absolute top-1/2 -translate-y-1/2 left-4 h-0.5 ${isDark ? 'bg-amber-400' : 'bg-emerald-700'} transition-all duration-500 -z-0`}
           style={{
             width: `${Math.max(0, Math.min(100, ((currentStep - 1) / Math.max(1, steps.length - 1)) * 100))}%`,
           }}
@@ -78,7 +78,7 @@ export function ProgressStepper({
 
       {/* Mobile Step Title */}
       <div className="text-center mt-3 sm:hidden">
-        <span className="text-xs font-bold text-emerald-900 dark:text-amber-300">
+        <span className={`text-xs font-bold ${isDark ? 'text-amber-300' : 'text-emerald-900'}`}>
           Step {currentStep} of {steps.length}:{' '}
           {steps.find((s, idx) => (s.number ?? s.id ?? idx + 1) === currentStep)?.title}
         </span>

@@ -46,6 +46,7 @@ export default function WhyNaradi() {
 
   return (
     <section
+      ref={ref}
       id="why-naradi"
       aria-label="Why thousands trust Naradi Developers"
       className="py-20 lg:py-28 bg-[#fafaf9]"

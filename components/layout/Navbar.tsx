@@ -51,7 +51,17 @@ export default function Navbar() {
   const isHomePage = pathname === '/';
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 40);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const scrolled = window.scrollY > 40;
+          setIsScrolled((prev) => (prev !== scrolled ? scrolled : prev));
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -73,17 +83,33 @@ export default function Navbar() {
     setMegaTimeout(t);
   };
 
+  const handleLogoClick = (e: React.MouseEvent) => {
+    if (pathname === '/') {
+      e.preventDefault();
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setIsMobileOpen(false);
+  };
+
+  const handleHeaderClick = (e: React.MouseEvent<HTMLElement>) => {
+    const target = e.target as HTMLElement;
+    if (!target.closest('a, button, input, select, textarea, [role="button"], [role="menu"], [role="menuitem"]')) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const isTransparent = isHomePage && !isScrolled && !isMobileOpen;
 
   return (
     <>
       <header
         role="banner"
+        onClick={handleHeaderClick}
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300 transform-gpu cursor-default',
           isTransparent
             ? 'bg-transparent py-4'
-            : 'bg-white/95 backdrop-blur-md shadow-md border-b border-gray-100 py-3'
+            : 'bg-white shadow-sm border-b border-gray-100 py-3'
         )}
       >
         <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -91,8 +117,9 @@ export default function Navbar() {
             {/* Left: Logo */}
             <Link
               href="/"
+              onClick={handleLogoClick}
               aria-label="Naradi Developers Home"
-              className="flex items-center gap-2.5 flex-shrink-0 group"
+              className="flex items-center gap-2.5 flex-shrink-0 group cursor-pointer"
             >
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center bg-gradient-to-br from-emerald-700 to-emerald-900 shadow-md group-hover:scale-105 transition-transform"
@@ -305,6 +332,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={link.href === '/' ? handleLogoClick : undefined}
                     className={cn(
                       'px-3.5 py-2 rounded-lg font-medium text-sm transition-all duration-200 relative group',
                       isTransparent
@@ -414,7 +442,12 @@ export default function Navbar() {
                 <div key={link.href} className="border-b border-gray-100 pb-2">
                   <Link
                     href={link.href}
-                    onClick={() => setIsMobileOpen(false)}
+                    onClick={(e) => {
+                      setIsMobileOpen(false);
+                      if (link.href === '/') {
+                        handleLogoClick(e);
+                      }
+                    }}
                     className="flex items-center justify-between py-2 text-base font-semibold text-gray-900 hover:text-emerald-700"
                   >
                     <span>{link.label}</span>

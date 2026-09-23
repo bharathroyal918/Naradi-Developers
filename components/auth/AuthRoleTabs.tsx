@@ -90,7 +90,7 @@ export function AuthRoleTabs({
                 ? dark
                   ? 'bg-slate-900 shadow-md border-2 border-emerald-500/50 ring-2 ring-emerald-500/15'
                   : 'bg-white shadow-md shadow-emerald-950/10 border-2 border-emerald-700/40 ring-2 ring-emerald-700/10'
-                : 'hover:bg-white/60 dark:hover:bg-white/5 opacity-80 hover:opacity-100'
+                : dark ? 'hover:bg-white/10 opacity-80 hover:opacity-100' : 'hover:bg-white/80 opacity-80 hover:opacity-100'
                 }`}
             >
               {content}
@@ -108,7 +108,7 @@ export function AuthRoleTabs({
               ? dark
                 ? 'bg-slate-900 shadow-md border-2 border-emerald-500/50 ring-2 ring-emerald-500/15'
                 : 'bg-white shadow-md shadow-emerald-950/10 border-2 border-emerald-700/40 ring-2 ring-emerald-700/10'
-              : 'hover:bg-white/60 dark:hover:bg-white/5 opacity-80 hover:opacity-100'
+              : dark ? 'hover:bg-white/10 opacity-80 hover:opacity-100' : 'hover:bg-white/80 opacity-80 hover:opacity-100'
               }`}
           >
             {content}

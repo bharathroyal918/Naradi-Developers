@@ -70,14 +70,14 @@ export function AuthLayout({
         <div className="relative z-10 flex items-center justify-between mb-8">
           <Link
             href="/"
-            className="group inline-flex items-center gap-2 text-xs font-bold text-emerald-200 hover:text-white transition-colors bg-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/15 hover:border-white/30"
+            className="group inline-flex items-center gap-2 text-xs font-bold text-emerald-200 hover:text-white transition-colors bg-white/10 px-3.5 py-1.5 rounded-full border border-white/15 hover:border-white/30 shadow-sm"
             aria-label="Return to Naradi Developers homepage"
           >
             <span>← Back to Marketplace</span>
           </Link>
 
           {/* Role Pill */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md border border-amber-400/30 bg-amber-400/10 text-amber-300">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold border border-amber-400/30 bg-amber-400/10 text-amber-300 shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span className="capitalize">{role === 'auth' ? 'Secure Auth' : `${role} Access`}</span>
           </div>

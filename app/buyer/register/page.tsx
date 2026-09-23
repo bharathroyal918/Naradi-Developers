@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { User, Mail, Phone, MapPin, Building, ArrowRight, Loader2 } from 'lucide-react';
+import { User, Mail, Phone, MapPin, Building, ArrowRight, Loader2, ChevronDown } from 'lucide-react';
 import { AuthLayout } from '@/components/auth/AuthLayout';
 import { AuthCard } from '@/components/auth/AuthCard';
 import { AuthHeader } from '@/components/auth/AuthHeader';
@@ -143,10 +143,10 @@ export default function BuyerRegisterPage() {
                     type="text"
                     placeholder="e.g. Rahul Sharma"
                     {...register('fullName')}
-                    className={`w-full pl-11 pr-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-slate-50/50 focus:bg-white ${
+                    className={`w-full pl-11 pr-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-white text-slate-900 placeholder:text-slate-400 ${
                       errors.fullName
                         ? 'border-rose-300 focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10'
-                        : 'border-slate-200 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
+                        : 'border-slate-200 hover:border-slate-300 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
                     }`}
                     disabled={isSubmitting}
                   />
@@ -164,10 +164,10 @@ export default function BuyerRegisterPage() {
                       placeholder="9876543210"
                       maxLength={10}
                       {...register('mobileNumber')}
-                      className={`w-full pl-11 pr-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-slate-50/50 focus:bg-white ${
+                      className={`w-full pl-11 pr-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-white text-slate-900 placeholder:text-slate-400 ${
                         errors.mobileNumber
                           ? 'border-rose-300 focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10'
-                          : 'border-slate-200 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
+                          : 'border-slate-200 hover:border-slate-300 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
                       }`}
                       disabled={isSubmitting}
                     />
@@ -182,10 +182,10 @@ export default function BuyerRegisterPage() {
                       type="email"
                       placeholder="name@example.com"
                       {...register('email')}
-                      className={`w-full pl-11 pr-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-slate-50/50 focus:bg-white ${
+                      className={`w-full pl-11 pr-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-white text-slate-900 placeholder:text-slate-400 ${
                         errors.email
                           ? 'border-rose-300 focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10'
-                          : 'border-slate-200 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
+                          : 'border-slate-200 hover:border-slate-300 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
                       }`}
                       disabled={isSubmitting}
                     />
@@ -201,7 +201,7 @@ export default function BuyerRegisterPage() {
                     <select
                       id="state"
                       {...register('state')}
-                      className="w-full pl-11 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm transition-all outline-none bg-slate-50/50 focus:bg-white focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10 appearance-none cursor-pointer"
+                      className="w-full pl-11 pr-10 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 text-sm transition-all outline-none bg-white text-slate-900 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10 appearance-none cursor-pointer"
                       disabled={isSubmitting}
                     >
                       {STATES.map((st) => (
@@ -210,6 +210,7 @@ export default function BuyerRegisterPage() {
                         </option>
                       ))}
                     </select>
+                    <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                   </div>
                 </FormField>
 
@@ -219,10 +220,10 @@ export default function BuyerRegisterPage() {
                     type="text"
                     placeholder="e.g. Bengaluru"
                     {...register('city')}
-                    className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-slate-50/50 focus:bg-white ${
+                    className={`w-full px-4 py-2.5 rounded-xl border text-sm transition-all outline-none bg-white text-slate-900 placeholder:text-slate-400 ${
                       errors.city
                         ? 'border-rose-300 focus:border-rose-500 focus:ring-4 focus:ring-rose-500/10'
-                        : 'border-slate-200 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
+                        : 'border-slate-200 hover:border-slate-300 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
                     }`}
                     disabled={isSubmitting}
                   />
@@ -241,7 +242,7 @@ export default function BuyerRegisterPage() {
                   <select
                     id="propertyType"
                     {...register('propertyType')}
-                    className="w-full pl-11 pr-4 py-2.5 rounded-xl border border-slate-200 text-sm transition-all outline-none bg-slate-50/50 focus:bg-white focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10 appearance-none cursor-pointer"
+                    className="w-full pl-11 pr-10 py-2.5 rounded-xl border border-slate-200 hover:border-slate-300 text-sm transition-all outline-none bg-white text-slate-900 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10 appearance-none cursor-pointer"
                     disabled={isSubmitting}
                   >
                     {PROPERTY_TYPES.map((pt) => (
@@ -250,6 +251,7 @@ export default function BuyerRegisterPage() {
                       </option>
                     ))}
                   </select>
+                  <ChevronDown className="w-4 h-4 text-slate-400 absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </FormField>
 
