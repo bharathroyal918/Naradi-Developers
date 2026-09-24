@@ -25,21 +25,22 @@ const pillars = [
 
 export default function WhoWeAre() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
+      ref={ref}
       id="who-we-are"
       aria-label="About Naradi Developers and leadership"
       className="py-20 lg:py-28 bg-[#fafaf9]"
     >
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image Collage */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="lg:col-span-5"
           >
             <div className="relative">
@@ -72,9 +73,9 @@ export default function WhoWeAre() {
 
           {/* Right Column: Story & 3 Pillar Cards */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="lg:col-span-7"
           >
             <div

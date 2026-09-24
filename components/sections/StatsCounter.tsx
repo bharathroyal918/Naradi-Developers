@@ -57,10 +57,11 @@ function AnimatedCounter({ target, suffix, prefix = '', duration = 1800 }: {
 
 export default function StatsCounter() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
+      ref={ref}
       id="stats"
       aria-label="Company statistics"
       className="py-16 relative overflow-hidden"
@@ -73,10 +74,9 @@ export default function StatsCounter() {
 
       <div className="container-xl relative">
         <motion.div
-          ref={ref}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.04 } } }}
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 text-center"
         >
           {mockStats.map((stat) => {

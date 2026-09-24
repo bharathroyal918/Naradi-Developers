@@ -180,9 +180,8 @@ function PropertyDetail({ property }: { property: Property }) {
               </Link>
               <button
                 onClick={() => setIsWishlisted(!isWishlisted)}
-                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all border border-white/10 ${
-                  isWishlisted ? 'bg-red-500 text-white' : 'bg-black/70 text-white hover:bg-black/90'
-                }`}
+                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all border border-white/10 ${isWishlisted ? 'bg-red-500 text-white' : 'bg-black/70 text-white hover:bg-black/90'
+                  }`}
                 aria-label="Wishlist"
               >
                 <Heart className={`w-4 h-4 ${isWishlisted ? 'fill-current' : ''}`} />
@@ -205,9 +204,8 @@ function PropertyDetail({ property }: { property: Property }) {
               <button
                 key={i}
                 onClick={() => setActiveImg(i)}
-                className={`flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden border-2 transition-all ${
-                  i === activeImg ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-transparent opacity-60 hover:opacity-100'
-                }`}
+                className={`flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden border-2 transition-all ${i === activeImg ? 'border-amber-400 ring-2 ring-amber-400/30' : 'border-transparent opacity-60 hover:opacity-100'
+                  }`}
                 aria-label={`Thumbnail ${i + 1}`}
               >
                 <div className="w-full h-full bg-cover bg-center" style={{ backgroundImage: `url('${img}')` }} />
@@ -320,11 +318,10 @@ function PropertyDetail({ property }: { property: Property }) {
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id as typeof activeTab)}
-                    className={`flex-shrink-0 px-5 py-4 text-xs font-bold uppercase tracking-wider transition-all border-b-2 -mb-px ${
-                      activeTab === tab.id
-                        ? 'border-emerald-800 text-emerald-900'
-                        : 'border-transparent text-gray-400 hover:text-gray-700'
-                    }`}
+                    className={`flex-shrink-0 px-5 py-4 text-xs font-bold uppercase tracking-wider transition-all border-b-2 -mb-px ${activeTab === tab.id
+                      ? 'border-emerald-800 text-emerald-900'
+                      : 'border-transparent text-gray-400 hover:text-gray-700'
+                      }`}
                   >
                     {tab.label}
                   </button>
@@ -392,17 +389,15 @@ function PropertyDetail({ property }: { property: Property }) {
                       <div className="flex bg-gray-100 rounded-xl p-1">
                         <button
                           onClick={() => setActivePlanView('master')}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                            activePlanView === 'master' ? 'bg-white text-emerald-950 shadow-sm' : 'text-gray-500'
-                          }`}
+                          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${activePlanView === 'master' ? 'bg-white text-emerald-950 shadow-sm' : 'text-gray-500'
+                            }`}
                         >
                           Master Layout (2D)
                         </button>
                         <button
                           onClick={() => setActivePlanView('floor')}
-                          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
-                            activePlanView === 'floor' ? 'bg-white text-emerald-950 shadow-sm' : 'text-gray-500'
-                          }`}
+                          className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${activePlanView === 'floor' ? 'bg-white text-emerald-950 shadow-sm' : 'text-gray-500'
+                            }`}
                         >
                           Floor & Setback View
                         </button>
@@ -418,7 +413,7 @@ function PropertyDetail({ property }: { property: Property }) {
                           backgroundSize: '24px 24px',
                         }}
                       />
-                      
+
                       {/* Blueprint Mock Lines */}
                       <svg className="w-full h-full max-w-md opacity-70" viewBox="0 0 400 300">
                         <rect x="40" y="40" width="320" height="220" fill="none" stroke="#C9A227" strokeWidth="2" strokeDasharray="4,4" />
@@ -701,11 +696,14 @@ function PropertyDetail({ property }: { property: Property }) {
 
                   <button
                     onClick={() => setIsVisitOpen(true)}
-                    className="w-full py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all text-emerald-950"
+                    className="w-full py-3.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all text-emerald-950 hover:brightness-105"
                     style={{ background: 'linear-gradient(135deg, #C9A227, #d4b04a)', border: 'none', cursor: 'pointer' }}
                   >
-                    <Calendar className="w-4 h-4" /> Book Site Visit (Free)
+                    <Calendar className="w-4 h-4" /> Book Priority Site Visit (₹2,000 Token)
                   </button>
+                  <p className="text-[10px] text-center text-gray-500 font-medium -mt-1 leading-snug">
+                    ₹2,000 commitment token • 100% adjustable on purchase • Dedicated surveyor accompaniment
+                  </p>
 
                   <div className="grid grid-cols-2 gap-2 pt-1">
                     <a
@@ -730,11 +728,10 @@ function PropertyDetail({ property }: { property: Property }) {
                 <div className="flex gap-2 mt-4 pt-4 border-t border-gray-100">
                   <button
                     onClick={() => setIsWishlisted(!isWishlisted)}
-                    className={`flex-1 py-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-1.5 transition-all ${
-                      isWishlisted
-                        ? 'border-red-200 text-red-600 bg-red-50'
-                        : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                    }`}
+                    className={`flex-1 py-2 rounded-xl text-xs font-bold border flex items-center justify-center gap-1.5 transition-all ${isWishlisted
+                      ? 'border-red-200 text-red-600 bg-red-50'
+                      : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                      }`}
                   >
                     <Heart className={`w-3.5 h-3.5 ${isWishlisted ? 'fill-current' : ''}`} />
                     {isWishlisted ? 'Saved' : 'Save'}
@@ -800,12 +797,12 @@ function PropertyDetail({ property }: { property: Property }) {
             className="px-4 py-3 rounded-xl font-bold text-emerald-950 text-xs shadow-md"
             style={{ background: 'linear-gradient(135deg, #C9A227, #d4b04a)' }}
           >
-            Visit
+            Visit (₹2K)
           </button>
-          <a href="tel:+919876543210" className="p-3 rounded-xl border border-gray-200 flex items-center justify-center text-gray-700">
+          <a href="tel:+91 9964156024" className="p-3 rounded-xl border border-gray-200 flex items-center justify-center text-gray-700">
             <Phone className="w-4 h-4" />
           </a>
-          <a href="https://wa.me/919876543210" className="p-3 rounded-xl flex items-center justify-center text-white" style={{ background: '#25D366' }}>
+          <a href="https://wa.me/919964156024" className="p-3 rounded-xl flex items-center justify-center text-white" style={{ background: '#25D366' }}>
             <MessageCircle className="w-4 h-4" />
           </a>
         </div>
@@ -892,7 +889,7 @@ function PropertyDetail({ property }: { property: Property }) {
             </button>
             <h3 className="font-display text-xl font-bold mb-1">Interactive 360° Virtual Tour</h3>
             <p className="text-xs text-gray-400 mb-4">{property.title} — High Precision Panoramic Simulation</p>
-            
+
             <div className="relative h-96 rounded-2xl overflow-hidden bg-cover bg-center flex items-center justify-center" style={{ backgroundImage: `url('${property.images[0]}')` }}>
               <div className="absolute inset-0 bg-black/40 backdrop-blur-xs" />
               <div className="relative z-10 text-center p-6 bg-black/60 rounded-2xl max-w-md border border-white/20">

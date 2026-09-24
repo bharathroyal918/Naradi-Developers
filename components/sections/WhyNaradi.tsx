@@ -42,7 +42,7 @@ const serviceCards = [
 
 export default function WhyNaradi() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
@@ -54,9 +54,9 @@ export default function WhyNaradi() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title Centered */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div
@@ -75,13 +75,13 @@ export default function WhyNaradi() {
         </motion.div>
 
         {/* 4 Premium Service Cards */}
-        <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {serviceCards.map((card, index) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.12 }}
+              transition={{ duration: 0.25, delay: index * 0.04 }}
               className="group bg-white rounded-3xl p-7 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
             >
               <div>

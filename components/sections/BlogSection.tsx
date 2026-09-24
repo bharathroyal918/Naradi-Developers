@@ -48,10 +48,11 @@ const smallPosts = [
 
 export default function BlogSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
+      ref={ref}
       id="blog"
       aria-label="Property insights, articles and real estate market guides"
       className="py-20 lg:py-28 bg-[#fafaf9]"
@@ -59,9 +60,9 @@ export default function BlogSection() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-14"
         >
           <div>
@@ -90,12 +91,12 @@ export default function BlogSection() {
         </motion.div>
 
         {/* Blog Grid (1 Large Featured + 3 Smaller Cards) */}
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           {/* Large Featured Article (7 Cols) */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.25 }}
             className="lg:col-span-7 bg-white rounded-3xl overflow-hidden border border-gray-200/80 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
@@ -142,9 +143,9 @@ export default function BlogSection() {
             {smallPosts.map((post, idx) => (
               <motion.div
                 key={post.slug}
-                initial={{ opacity: 0, y: 25 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                transition={{ duration: 0.25, delay: idx * 0.04 }}
                 className="bg-white rounded-3xl p-5 border border-gray-200/80 shadow-sm hover:shadow-lg hover:border-emerald-200 transition-all flex flex-col sm:flex-row gap-5 group"
               >
                 <div className="sm:w-36 sm:h-32 h-44 rounded-2xl overflow-hidden flex-shrink-0 relative">

@@ -37,27 +37,28 @@ const benefits = [
   {
     icon: Calendar,
     title: 'Site Visit Coordination',
-    desc: 'Free accompanied site inspection with legal survey packs and local development insights.',
+    desc: 'Dedicated accompanied site inspection with land surveyor & legal packs (nominal ₹2,000 commitment token, 100% adjusted on purchase).',
   },
 ];
 
 export default function WhyInvest() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
+      ref={ref}
       id="why-invest"
       aria-label="Why invest in land through Naradi Developers"
       className="py-20 lg:py-28 bg-white"
     >
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Visual Card with Illustration & Stats */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="lg:col-span-5"
           >
             <div className="relative">
@@ -93,9 +94,9 @@ export default function WhyInvest() {
 
           {/* Right Column: Title & 6 Benefits List */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="lg:col-span-7"
           >
             <div

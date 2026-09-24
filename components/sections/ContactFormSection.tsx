@@ -16,7 +16,7 @@ interface ContactFormData {
 
 export default function ContactFormSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
   const [isSuccess, setIsSuccess] = useState(false);
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<ContactFormData>();
 
@@ -30,6 +30,7 @@ export default function ContactFormSection() {
 
   return (
     <section
+      ref={ref}
       id="contact"
       aria-label="Direct quick enquiry and headquarters contact"
       className="py-20 lg:py-28 bg-[#fafaf9]"
@@ -37,9 +38,9 @@ export default function ContactFormSection() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div
@@ -59,12 +60,12 @@ export default function ContactFormSection() {
         </motion.div>
 
         {/* Two-Column Layout */}
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* Left Column (7 Cols): Quick Enquiry Form */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 0, x: -20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
             className="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-gray-200/80 shadow-xl"
           >
             <div className="mb-6">
@@ -185,9 +186,9 @@ export default function ContactFormSection() {
 
           {/* Right Column (5 Cols): Contact Cards & Headquarters Map */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 0, x: 20 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
+            transition={{ duration: 0.3, delay: 0.05 }}
             className="lg:col-span-5 space-y-4"
           >
             {/* Phone Card */}

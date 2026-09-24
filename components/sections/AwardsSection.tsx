@@ -52,10 +52,11 @@ const partnerGroups = [
 
 export default function AwardsSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
+      ref={ref}
       id="awards-certifications"
       aria-label="Certifications, awards and institutional partners"
       className="py-20 lg:py-28 bg-[#fafaf9]"
@@ -63,9 +64,9 @@ export default function AwardsSection() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div
@@ -85,13 +86,13 @@ export default function AwardsSection() {
         </motion.div>
 
         {/* 4 Horizontal Certification Cards */}
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {certifications.map((item, idx) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 25 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.25, delay: idx * 0.04 }}
               className="bg-white rounded-3xl p-6 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>

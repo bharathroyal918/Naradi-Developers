@@ -25,9 +25,9 @@ function PropertyCard({ property, index }: { property: typeof mockProperties[0];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 15 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: index * 0.08 }}
+      transition={{ duration: 0.25, delay: Math.min(index * 0.03, 0.15) }}
       className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl border border-gray-100 hover:border-emerald-200 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between"
     >
       {/* Top Image Slider & Badges */}
@@ -225,7 +225,7 @@ function PropertyCard({ property, index }: { property: typeof mockProperties[0];
 export default function FeaturedProperties() {
   const ref = useRef(null);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   const scrollLeft = () => {
     if (carouselRef.current) {
@@ -249,9 +249,9 @@ export default function FeaturedProperties() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header with Carousel Controls */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-12"
         >
           <div>

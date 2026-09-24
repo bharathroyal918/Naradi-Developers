@@ -720,9 +720,9 @@ export default function PropertiesPage() {
                   viewMode === 'grid' ? (
                     <motion.div
                       key={property.id}
-                      initial={{ opacity: 0, y: 20 }}
+                      initial={{ opacity: 0, y: 15 }}
                       animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.05 }}
+                      transition={{ duration: 0.2, delay: Math.min(index * 0.02, 0.15) }}
                       className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl border border-gray-100 hover:border-emerald-200 transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between"
                     >
                       {/* Image Top */}
@@ -860,9 +860,9 @@ export default function PropertiesPage() {
                     // List View Item
                     <motion.div
                       key={property.id}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -15 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.04 }}
+                      transition={{ duration: 0.2, delay: Math.min(index * 0.02, 0.15) }}
                       className="bg-white rounded-3xl border border-gray-100 hover:border-emerald-200 hover:shadow-xl transition-all overflow-hidden p-4"
                     >
                       <div className="flex flex-col sm:flex-row gap-5">

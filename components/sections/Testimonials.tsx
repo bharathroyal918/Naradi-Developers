@@ -7,7 +7,7 @@ import { mockTestimonials } from '@/lib/mock/testimonials';
 
 export default function Testimonials() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
   const [current, setCurrent] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
@@ -24,6 +24,7 @@ export default function Testimonials() {
 
   return (
     <section
+      ref={ref}
       id="testimonials"
       aria-label="Customer testimonials"
       className="section-padding bg-gradient-to-br from-gray-50 via-white to-emerald-50"
@@ -31,8 +32,9 @@ export default function Testimonials() {
       <div className="container-xl">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.3 }}
           className="text-center mb-14"
         >
           <div
@@ -51,7 +53,7 @@ export default function Testimonials() {
         </motion.div>
 
         {/* Main Carousel */}
-        <div ref={ref} className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto">
           {/* Big Featured Testimonial */}
           <div className="relative overflow-hidden">
             <motion.div

@@ -86,15 +86,34 @@ export function ScheduleVisitModal({
                   <CheckCircle2 className="w-9 h-9" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-gray-900">Visit Scheduled Successfully!</h4>
+                  <h4 className="text-lg font-bold text-gray-900">
+                    {visitType === 'physical' ? 'Priority Site Visit Reserved!' : 'Virtual Tour Scheduled!'}
+                  </h4>
                   <p className="text-xs text-gray-600 mt-1 max-w-xs mx-auto">
-                    Your {visitType === 'physical' ? 'on-ground inspection' : 'live virtual video tour'} for{' '}
+                    Your {visitType === 'physical' ? 'priority on-ground inspection' : 'live virtual video tour'} for{' '}
                     <span className="font-semibold text-emerald-800">{preferredDate || 'upcoming date'}</span> at{' '}
-                    <span className="font-semibold text-emerald-800">{preferredTime}</span> has been confirmed.
+                    <span className="font-semibold text-emerald-800">{preferredTime}</span> has been received.
                   </p>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-50 text-[11px] text-gray-500 border border-gray-100">
-                  A verification specialist will connect with you on WhatsApp ({phone || '+91 98765 43210'}) with directions and GPS coordinates.
+                <div className="p-3.5 rounded-xl bg-slate-50 text-[11px] text-gray-600 border border-gray-200 text-left space-y-1.5">
+                  {visitType === 'physical' ? (
+                    <>
+                      <p className="font-bold text-emerald-950 flex items-center justify-between">
+                        <span>Dedicated Land Surveyor Assignment</span>
+                        <span className="text-[10px] text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">₹2,000 Token</span>
+                      </p>
+                      <p className="text-gray-600">
+                        Our relationship manager will reach out on WhatsApp ({phone || '+91 98765 43210'}) within 30 minutes to confirm your initial ₹2,000 commitment token receipt, share surveyor contact details, and send live GPS navigation.
+                      </p>
+                      <p className="text-[10px] text-emerald-800 font-semibold pt-1 border-t border-gray-200/80">
+                        ✓ Note: Your ₹2,000 commitment fee is 100% credited into your property booking token.
+                      </p>
+                    </>
+                  ) : (
+                    <p className="text-gray-600">
+                      A relationship manager will share your Google Meet / WhatsApp 360° video tour link with HD drone footage to {phone || '+91 98765 43210'}.
+                    </p>
+                  )}
                 </div>
                 <button
                   type="button"
@@ -113,36 +132,76 @@ export function ScheduleVisitModal({
                     <button
                       type="button"
                       onClick={() => setVisitType('physical')}
-                      className={`p-3 rounded-xl border text-left flex items-center gap-2.5 transition-all ${
+                      className={`p-3 rounded-xl border text-left flex items-center justify-between transition-all ${
                         visitType === 'physical'
                           ? 'border-emerald-600 bg-emerald-50/60 ring-2 ring-emerald-600/10 text-emerald-950 font-bold'
                           : 'border-gray-200 text-gray-700 hover:bg-gray-50 font-medium'
                       }`}
                     >
-                      <MapPin className="w-4 h-4 text-emerald-700" />
-                      <div>
-                        <div className="text-xs">Physical Visit</div>
-                        <div className="text-[10px] text-gray-500 font-normal">On-ground walkthrough</div>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-emerald-700 flex-shrink-0" />
+                        <div>
+                          <div className="text-xs">Physical Visit</div>
+                          <div className="text-[10px] text-gray-500 font-normal">On-ground with Surveyor</div>
+                        </div>
                       </div>
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-300">
+                        ₹2,000
+                      </span>
                     </button>
 
                     <button
                       type="button"
                       onClick={() => setVisitType('virtual')}
-                      className={`p-3 rounded-xl border text-left flex items-center gap-2.5 transition-all ${
+                      className={`p-3 rounded-xl border text-left flex items-center justify-between transition-all ${
                         visitType === 'virtual'
                           ? 'border-emerald-600 bg-emerald-50/60 ring-2 ring-emerald-600/10 text-emerald-950 font-bold'
                           : 'border-gray-200 text-gray-700 hover:bg-gray-50 font-medium'
                       }`}
                     >
-                      <Video className="w-4 h-4 text-amber-600" />
-                      <div>
-                        <div className="text-xs">Virtual 360 Tour</div>
-                        <div className="text-[10px] text-gray-500 font-normal">HD Video / NRI friendly</div>
+                      <div className="flex items-center gap-2">
+                        <Video className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                        <div>
+                          <div className="text-xs">Virtual 360 Tour</div>
+                          <div className="text-[10px] text-gray-500 font-normal">HD Video / Remote</div>
+                        </div>
                       </div>
+                      <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300">
+                        Free
+                      </span>
                     </button>
                   </div>
                 </div>
+
+                {/* Visit Type Policy Context Banner */}
+                {visitType === 'physical' ? (
+                  <div className="p-3 rounded-2xl bg-amber-50/90 border border-amber-200 text-amber-950 flex items-start gap-2.5 text-xs leading-relaxed">
+                    <div className="w-6 h-6 rounded-lg bg-amber-400 text-emerald-950 font-black text-[11px] flex items-center justify-center flex-shrink-0 mt-0.5 shadow-xs">
+                      ₹2K
+                    </div>
+                    <div>
+                      <div className="font-bold text-amber-900 flex flex-wrap items-center gap-1.5">
+                        <span>Serious Buyer Commitment Token</span>
+                        <span className="text-[9px] font-bold text-emerald-800 bg-emerald-100 px-1.5 py-0.2 rounded-full border border-emerald-200">
+                          100% Adjusted on Purchase
+                        </span>
+                      </div>
+                      <p className="text-[11px] text-amber-900/90 mt-0.5">
+                        To eliminate time-wasters and ensure dedicated one-on-one time from our senior land surveyor, physical visits require an initial token of <strong>₹2,000</strong>. This fee is <strong>100% credited into your property booking</strong>.
+                      </p>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="p-3 rounded-2xl bg-emerald-50/80 border border-emerald-200 text-emerald-950 flex items-start gap-2 text-xs leading-relaxed">
+                    <Sparkles className="w-4 h-4 text-emerald-700 flex-shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-bold text-emerald-900">Virtual 360° Tours are 100% Free:</span>{' '}
+                      <span className="text-emerald-800 text-[11px]">
+                        Inspect boundaries, drone footage, and surroundings over a live guided video call before scheduling your on-ground physical visit.
+                      </span>
+                    </div>
+                  </div>
+                )}
 
                 {/* Date & Time Grid */}
                 <div className="grid grid-cols-2 gap-3">
@@ -231,10 +290,19 @@ export function ScheduleVisitModal({
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 rounded-xl font-bold text-xs bg-emerald-700 hover:bg-emerald-800 text-white shadow-lg shadow-emerald-900/15 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-xl font-bold text-xs bg-emerald-700 hover:bg-emerald-800 text-white shadow-lg shadow-emerald-900/15 transition-all flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  {isSubmitting ? 'Confirming Site Tour...' : 'Confirm Free Site Visit'}
+                  {isSubmitting
+                    ? 'Reserving Visit Slot...'
+                    : visitType === 'physical'
+                    ? 'Reserve Priority Visit (₹2,000 Commitment Token)'
+                    : 'Confirm Free Virtual 360° Tour'}
                 </button>
+                {visitType === 'physical' && (
+                  <p className="text-[10.5px] text-center text-gray-500 font-medium -mt-1 leading-snug">
+                    🔒 Nominal ₹2,000 token is 100% credited into your property booking. Strictly for genuine buyers.
+                  </p>
+                )}
               </form>
             )}
           </div>

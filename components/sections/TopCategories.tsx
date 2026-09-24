@@ -66,7 +66,7 @@ const landCategories = [
 
 export default function TopCategories() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
@@ -78,9 +78,9 @@ export default function TopCategories() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="flex flex-col md:flex-row md:items-end justify-between mb-14"
         >
           <div>
@@ -108,7 +108,7 @@ export default function TopCategories() {
         </motion.div>
 
         {/* 7 Category Cards in a Dynamic Grid Layout */}
-        <div ref={ref} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-5">
           {landCategories.map((cat, idx) => {
             // Give cards responsive column spans:
             // Item 0 & 6 take 6 columns (large cards), others take 4 columns for balanced 12-column layout
@@ -117,9 +117,9 @@ export default function TopCategories() {
             return (
               <motion.div
                 key={cat.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                transition={{ duration: 0.25, delay: idx * 0.03 }}
                 className={colSpan}
               >
                 <Link

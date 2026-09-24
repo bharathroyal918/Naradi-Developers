@@ -29,7 +29,7 @@ export default async function PlotsPage() {
     },
     {
       q: 'What is the standard procedure for booking a site visit?',
-      a: 'Simply click "Schedule Visit" on any plot. You can choose an on-ground accompanied visit with GPS pickup or a live virtual tour with a relationship manager.',
+      a: 'Simply click "Schedule Visit" on any plot. You can select an on-ground accompanied visit with our certified land surveyor (₹2,000 commitment token, 100% adjustable against booking) or a free live virtual 360° tour with a relationship manager.',
     },
   ];
 

@@ -14,7 +14,7 @@ const faqItems = [
   {
     id: 'faq-2',
     question: 'Do buyers pay any brokerage or hidden charges?',
-    answer: 'No. Absolutely zero brokerage. Naradi operates on a strict broker-free model connecting buyers and investors directly with verified title owners. You pay the agreed property price directly to the seller during registration. All platform discovery, site visit coordination, and basic document reviews are 100% free for buyers.',
+    answer: 'No. Absolutely zero brokerage. Naradi operates on a strict broker-free model connecting buyers directly with verified title owners. You pay the agreed property price directly to the seller during registration. All platform search, digital verification summaries, and 360° virtual tours are completely free. For on-ground physical inspections, we require a nominal ₹2,000 commitment token (100% adjustable against booking) to ensure dedicated one-on-one advocate and surveyor time exclusively for serious buyers.',
   },
   {
     id: 'faq-3',
@@ -29,17 +29,18 @@ const faqItems = [
   {
     id: 'faq-5',
     question: 'How can I schedule a physical site visit?',
-    answer: 'Simply click "Schedule Visit" on any property card or detail page, select your convenient date and time slot, and submit your phone number. Our local field officer will contact you within 2 business hours, share the exact Google Maps location pin, and personally meet you at the site with legal survey documents in hand.',
+    answer: 'Simply click "Schedule Visit" on any property card or detail page, select your preferred date/time slot, and complete the ₹2,000 commitment token. This initial payment ensures our certified land surveyor and senior legal officer dedicate their full time to your visit with complete survey sketches and original layout sanctions. The ₹2,000 token is 100% credited towards your property booking. If you prefer, live 360° virtual video tours remain completely free.',
   },
 ];
 
 export default function FAQSection() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
   const [openId, setOpenId] = useState<string | null>('faq-1');
 
   return (
     <section
+      ref={ref}
       id="faq"
       aria-label="Frequently asked questions about buying and selling land"
       className="py-20 lg:py-28 bg-white"
@@ -47,9 +48,9 @@ export default function FAQSection() {
       <div className="container-xl max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center mb-16"
         >
           <div
@@ -69,15 +70,15 @@ export default function FAQSection() {
         </motion.div>
 
         {/* Accordion */}
-        <div ref={ref} className="space-y-4">
+        <div className="space-y-4">
           {faqItems.map((item, index) => {
             const isOpen = openId === item.id;
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
+                transition={{ duration: 0.25, delay: index * 0.03 }}
                 className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
                   isOpen
                     ? 'border-emerald-700 bg-[#fafaf9] shadow-md'

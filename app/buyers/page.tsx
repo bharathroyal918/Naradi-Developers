@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 const buyingSteps = [
   { step: 1, title: 'Register for Free', desc: 'Create your buyer account in 2 minutes. No subscription required.', icon: Users },
   { step: 2, title: 'Search & Shortlist', desc: 'Use our advanced filters to find your perfect property. Save to wishlist.', icon: Search },
-  { step: 3, title: 'Request Site Visit', desc: 'Book a free site visit with the property owner. No brokers involved.', icon: CheckCircle },
+  { step: 3, title: 'Request Site Visit', desc: 'Schedule an accompanied site visit with a certified land surveyor. A nominal ₹2,000 commitment token (100% adjustable against booking) ensures serious buyers get dedicated, time-efficient inspections.', icon: CheckCircle },
   { step: 4, title: 'Legal Verification', desc: 'Our experts verify all legal documents — 30-year title, EC, patta.', icon: Shield },
   { step: 5, title: 'Loan & Finance', desc: 'Get pre-approved home loans from our banking partners at best rates.', icon: Calculator },
   { step: 6, title: 'Register & Own', desc: 'Complete the registration with our legal team support. Enjoy your property!', icon: FileText },
@@ -19,7 +19,7 @@ const buyingSteps = [
 const buyerBenefits = [
   'Zero brokerage — save 1-2% commission',
   'Legally verified properties only',
-  'Free site visits arranged',
+  'Dedicated accompanied site visits (₹2,000 token, 100% adjustable)',
   '30-year title check guarantee',
   'Dedicated support throughout purchase',
   'Home loan assistance at 8.5% p.a.',

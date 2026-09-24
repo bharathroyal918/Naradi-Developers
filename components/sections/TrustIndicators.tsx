@@ -37,7 +37,7 @@ const trustMetrics = [
 
 export default function TrustIndicators() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-40px' });
+  const isInView = useInView(ref, { once: true, margin: '200px' });
 
   return (
     <section
@@ -47,18 +47,18 @@ export default function TrustIndicators() {
     >
       <motion.div
         ref={ref}
-        initial={{ opacity: 0, y: 30 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={isInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.3 }}
         className="bg-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl border border-gray-100/80"
       >
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-y sm:divide-y-0 sm:divide-x divide-gray-100">
           {trustMetrics.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.25, delay: index * 0.04 }}
               className={`flex items-start gap-4 pt-4 sm:pt-0 ${index > 0 ? 'sm:pl-6' : ''} group hover:-translate-y-1 transition-transform duration-300`}
             >
               {/* Green Circular Background */}

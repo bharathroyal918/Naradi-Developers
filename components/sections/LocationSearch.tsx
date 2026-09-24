@@ -76,11 +76,12 @@ const stateLocations = [
 
 export default function LocationSearch() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
   const [activeState, setActiveState] = useState(stateLocations[0]);
 
   return (
     <section
+      ref={ref}
       id="location-search"
       aria-label="Property search by location across India"
       className="py-20 lg:py-28 bg-[#fafaf9]"
@@ -88,9 +89,9 @@ export default function LocationSearch() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div
@@ -212,13 +213,13 @@ export default function LocationSearch() {
         </motion.div>
 
         {/* 6 Quick State Cards Grid */}
-        <div ref={ref} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3.5">
           {stateLocations.map((item, i) => (
             <motion.div
               key={item.state}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
+              transition={{ duration: 0.25, delay: i * 0.03 }}
             >
               <button
                 type="button"

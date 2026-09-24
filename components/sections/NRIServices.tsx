@@ -52,7 +52,7 @@ const nriCards = [
 
 export default function NRIServices() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
@@ -68,9 +68,9 @@ export default function NRIServices() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Title Centered */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4 text-xs font-bold uppercase tracking-wider bg-white/10 text-amber-300 border border-white/15">
@@ -87,13 +87,13 @@ export default function NRIServices() {
         </motion.div>
 
         {/* Three Large Cards */}
-        <div ref={ref} className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {nriCards.map((card, idx) => (
             <motion.div
               key={card.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: idx * 0.14 }}
+              transition={{ duration: 0.25, delay: idx * 0.05 }}
               className="bg-emerald-900/60 rounded-3xl p-7 border border-white/15 hover:border-amber-400/50 hover:bg-emerald-900/80 transition-all duration-300 flex flex-col justify-between group shadow-xl"
             >
               <div>

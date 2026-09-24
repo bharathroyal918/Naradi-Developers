@@ -17,8 +17,8 @@ const steps = [
     step: '02',
     icon: Calendar,
     title: '2. Schedule Site Visit',
-    description: 'Select your preferred date & time. Our dedicated field officer meets you at the property with survey maps and layout approval documents.',
-    highlight: 'Free accompanied field inspection',
+    description: 'Select your preferred date & time. Our certified surveyor meets you at the property with survey maps and layout approval documents.',
+    highlight: 'Dedicated surveyor visit (₹2,000 token, 100% adjustable)',
   },
   {
     step: '03',
@@ -38,10 +38,11 @@ const steps = [
 
 export default function HowItWorks() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
+  const isInView = useInView(ref, { once: true, margin: '300px' });
 
   return (
     <section
+      ref={ref}
       id="how-it-works"
       aria-label="Buying land made simple 4-step timeline"
       className="py-20 lg:py-28 bg-white"
@@ -49,9 +50,9 @@ export default function HowItWorks() {
       <div className="container-xl max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.3 }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <div
@@ -70,7 +71,7 @@ export default function HowItWorks() {
         </motion.div>
 
         {/* Timeline Container */}
-        <div ref={ref} className="relative">
+        <div className="relative">
           {/* Horizontal Desktop Connector Line */}
           <div className="hidden lg:block absolute top-28 left-[12%] right-[12%] h-0.5 bg-gradient-to-r from-emerald-700 via-amber-400 to-emerald-700 -z-0 opacity-40" />
 
@@ -79,9 +80,9 @@ export default function HowItWorks() {
             {steps.map((item, index) => (
               <motion.div
                 key={item.step}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.12 }}
+                transition={{ duration: 0.25, delay: index * 0.04 }}
                 className="bg-stone-50 rounded-3xl p-6 sm:p-7 border border-gray-100 hover:border-emerald-300 hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group"
               >
                 <div>
